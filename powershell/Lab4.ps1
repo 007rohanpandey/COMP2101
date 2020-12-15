@@ -7,8 +7,6 @@ get-ciminstance -Class Win32_processor -ErrorAction Stop | Select-Object L1Cache
 write-output 'RAM_INFORMATION'
 get-ciminstance -Class Win32_physicalmemory -ErrorAction Stop | Select-Object Description, Capacity, BankLabel
 write-output 'NETWORKADAPTERCONFIGURATION_INFORMATION'
-get-ciminstance -class win32_networkadapterconfiguration |
-where-object ipenabled -eq true |
-format-table description, InterfaceIndex, IPAddress, SubnetMask, DNSDomain, DNSServer
+NAC
 write-output 'VIDEOCARD_INFORMATION'
 get-ciminstance -Class Win32_videocontroller -ErrorAction Stop | Select-Object Description, VideoModeDescription
